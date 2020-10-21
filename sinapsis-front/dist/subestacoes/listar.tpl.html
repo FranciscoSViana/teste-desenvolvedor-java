@@ -1,0 +1,24 @@
+<div
+  ng-controller="SubestacoesController as vm"
+  class="container"
+  ng-init="vm.iniciar()"
+>
+  <div class="d-flex justify-content-between align-items-center">
+    <h2>{{ page | capitalize }}</h2>
+  </div>
+  <hr />
+
+  <div ng-show="vm.listaSubestacoes.length" class="list-group">
+    <a
+      ng-click="vm.detalhar()"
+      ng-repeat="sub in vm.listaSubestacoes"
+      class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+    >
+      {{sub.codigo}}
+      <span class="badge badge-primary badge-pill">{{sub.qtdItens}}</span>
+    </a>
+  </div>
+  <div ng-hide="vm.listaSubestacoes.length" class="alert alert-info">
+    Nenhuma subestação cadastrada.
+  </div>
+</div>

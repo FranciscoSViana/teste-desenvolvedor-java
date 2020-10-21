@@ -1,0 +1,50 @@
+<div
+  ng-controller="RedesController as vm"
+  class="container"
+  ng-init="vm.iniciar()"
+>
+  <div class="d-flex justify-content-between align-items-center">
+    <h2>{{ page }}</h2>
+  </div>
+  <hr />
+  <form name="vm.form" ng-submit="vm.submit()">
+    <div class="form-group">
+      <label>Nome</label>
+      <input
+        class="form-control"
+        type="text"
+        name="name"
+        placeholder="Nome"
+        ng-model="vm.rede.name"
+      />
+    </div>
+    <div class="form-group">
+      <label>URL da Imagem</label>
+      <input
+        class="form-control"
+        type="text"
+        name="imgUrl"
+        placeholder="Descrição"
+        ng-model="vm.rede.imgUrl"
+      />
+    </div>
+    <div class="form-group">
+      <label>Subestação</label>
+      <select
+        class="form-control"
+        ng-model="vm.rede.category"
+        name="category"
+        ng-options="sub.title as sub.title for sub in vm.listaSubestacoes"
+      >
+        <option value="">Selecione...</option>
+      </select>
+    </div>
+    <button class="btn btn-primary" type="submit">Salvar</button>
+  </form>
+  <br />
+  <p>
+    <a ng-click="vm.go('/gerenciar/redes')" class="text-info c-pointer"
+      >Voltar</a
+    >
+  </p>
+</div>
